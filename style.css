@@ -1,0 +1,126 @@
+:root{
+  --bg: #0f172a;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --accent: #06b6d4;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #071129 0%, #081028 50%, #061021 100%);
+  color:#e6eef8;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  padding:20px;
+  gap:18px;
+}
+
+/* Header */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+h1{margin:0;font-size:1.2rem}
+.controls{display:flex;gap:8px}
+.controls button{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.04);
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.controls button:hover{transform:translateY(-2px); color:#fff; border-color:rgba(255,255,255,0.08)}
+
+/* Main panes */
+main{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  flex:1;
+}
+.pane{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-height:300px;
+}
+
+.pane-header{
+  padding:12px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.02);
+  color:var(--muted);
+  font-size:0.95rem;
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+
+/* Left - textarea */
+textarea#editor{
+  flex:1;
+  width:100%;
+  padding:16px;
+  border:0;
+  resize:vertical;
+  outline:none;
+  background:transparent;
+  color: #e6eef8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* Right - preview */
+.preview{
+  padding:16px;
+  overflow:auto;
+  flex:1;
+  background:transparent;
+  color: #e6eef8;
+}
+
+/* Markdown styling in preview */
+.preview h1, .preview h2, .preview h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+.preview p{ color: #cfe7ff; margin:8px 0; }
+.preview code{
+  background: rgba(0,0,0,0.45);
+  padding:4px 6px;
+  border-radius:6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size:13px;
+}
+.preview pre{
+  background:#020617;
+  padding:12px;
+  border-radius:8px;
+  overflow:auto;
+}
+.preview a{ color:var(--accent); text-decoration:underline; }
+.preview blockquote{
+  border-left:4px solid rgba(255,255,255,0.06);
+  padding-left:12px;
+  color:var(--muted);
+  margin:8px 0;
+}
+
+/* Footer */
+footer{ text-align:center; color:var(--muted); font-size:13px; }
+
+/* Responsive */
+@media (max-width:900px){
+  main{ grid-template-columns: 1fr; }
+  .controls{ flex-wrap:wrap }
+}
