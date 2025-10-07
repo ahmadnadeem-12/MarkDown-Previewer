@@ -1,17 +1,17 @@
-// Elements
+
 const editor = document.getElementById("editor");
 const preview = document.getElementById("preview");
 const btnSample = document.getElementById("btn-sample");
 const btnClear = document.getElementById("btn-clear");
 const btnExport = document.getElementById("btn-export");
 
-// Configure marked
+
 marked.setOptions({
   breaks: true,
   gfm: true,
 });
 
-// Sample markdown (placeholder)
+
 const SAMPLE = `# Welcome to Markdown Previewer
 
 Type Markdown on the **left** — see the HTML preview on the **right**.
@@ -47,7 +47,6 @@ Inline code: \`const a = 10;\`
 Enjoy! ✨
 `;
 
-// Render function (sanitize output)
 function renderMarkdown(mdText) {
   try {
     const raw = marked.parse(mdText || "");
@@ -77,7 +76,6 @@ btnClear.addEventListener("click", () => {
   renderMarkdown("");
 });
 
-// Export HTML (download a simple HTML file)
 btnExport.addEventListener("click", () => {
   const html = `<!doctype html>
 <html>
@@ -93,6 +91,5 @@ btnExport.addEventListener("click", () => {
   URL.revokeObjectURL(url);
 });
 
-// Initialize with sample
 editor.value = SAMPLE;
 renderMarkdown(SAMPLE);
